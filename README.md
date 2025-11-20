@@ -1,7 +1,7 @@
 
 # Real Estate Data Analyzer (Full Stack Project)
 
-This project is a full‑stack real estate data analyzer built using **Django (Backend)** and **React (Frontend)**.  
+This project is a full‑stack real estate data analyzer built using **Django (Backend)** and **React (Frontend)**.
 It allows users to input natural language queries and generates:
 
 - 📌 AI‑enhanced summary  
@@ -12,17 +12,27 @@ It allows users to input natural language queries and generates:
 
 ---
 
+## 🚀 Live Deployment Links
+
+### 🌐 **Frontend (Vercel)**
+👉 https://real-estate-analysis-project.vercel.app/
+
+### 🖥 **Backend (Render)**
+👉 https://realestate-backend-soou.onrender.com/
+
+---
+
 ## 🚀 Tech Stack
 
 ### **Frontend**
 - React.js  
 - Bootstrap  
-- Recharts (for charts)
+- Recharts  
 
 ### **Backend**
 - Django REST Framework  
 - Pandas / NumPy  
-- OpenPyXL (Excel export)
+- OpenPyXL  
 
 ---
 
@@ -68,12 +78,12 @@ Frontend runs at:
 
 ## ⭐ Features
 
-- Search real estate insights using plain English
-- Auto‑detected areas and trends
-- Two charts per area (Price vs Demand)
-- Recent queries and suggested prompts
-- Download filtered Excel data
-- Clean dark UI
+- Search real estate insights using plain English  
+- Auto‑detected areas and trends  
+- Two charts per area (Price vs Demand)  
+- Recent queries and suggested prompts  
+- Download filtered Excel data  
+- Clean dark UI  
 
 ---
 
@@ -86,6 +96,7 @@ POST /api/download-xlsx/
 ```
 
 Payload:
+
 ```json
 {
   "table_data": [...]
@@ -99,9 +110,9 @@ Returns:
 
 ## 📌 Deployment Notes
 
-- Backend can be deployed on **Render**  
-- Frontend can be deployed on **Vercel**  
-- Set CORS correctly (`CORS_ORIGIN_ALLOW_ALL = True` for development)
+- Backend deployed on **Render**  
+- Frontend deployed on **Vercel**  
+- Enable CORS (`CORS_ALLOW_ALL_ORIGINS = True`) for development  
 
 ---
 
