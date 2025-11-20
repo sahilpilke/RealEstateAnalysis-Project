@@ -20,8 +20,8 @@ function App() {
   const [recentQueries, setRecentQueries] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // API base URL (local fallback + Vercel support)
-  const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+  // 🔥 Using your deployed Render backend
+  const API_BASE_URL = "https://realestate-backend-soou.onrender.com";
 
   const suggested = [
     "Compare Ambegaon Budruk and Aundh demand trends",
@@ -89,7 +89,8 @@ function App() {
   return (
     <div className="container-fluid min-vh-100 bg-dark text-light py-4">
       <div className="row g-4">
-        {/* Left: Query + Recent */}
+
+        {/* LEFT: Query + Recent */}
         <div className="col-lg-8">
           <div className="card bg-secondary border-0 shadow-sm">
             <div className="card-body py-3">
@@ -135,7 +136,7 @@ function App() {
           </div>
         </div>
 
-        {/* Suggested Queries */}
+        {/* RIGHT: Suggested */}
         <div className="col-lg-4">
           <div className="card bg-secondary border-0 shadow-sm">
             <div className="card-body py-3">
@@ -155,9 +156,10 @@ function App() {
             </div>
           </div>
         </div>
+
       </div>
 
-      {/* Summary */}
+      {/* SUMMARY */}
       {summary && (
         <div className="card bg-secondary border-0 shadow-sm mt-4">
           <div className="card-body">
@@ -167,7 +169,7 @@ function App() {
         </div>
       )}
 
-      {/* Charts */}
+      {/* CHARTS */}
       {chartData && Object.keys(chartData).length > 0 && (
         <div className="card bg-secondary border-0 shadow-sm mt-4">
           <div className="card-body">
@@ -175,6 +177,7 @@ function App() {
 
             {Object.entries(chartData).map(([area, data]) => (
               <div key={area} className="my-4">
+
                 <h5 className="fw-bold text-info">{area}</h5>
 
                 <h6 className="text-light mt-3">Price Trend</h6>
@@ -185,12 +188,7 @@ function App() {
                     <CartesianGrid strokeDasharray="3 3" stroke="#888" />
                     <Tooltip />
                     <Legend />
-                    <Line
-                      type="monotone"
-                      dataKey="price"
-                      stroke="#00d1ff"
-                      strokeWidth={3}
-                    />
+                    <Line type="monotone" dataKey="price" stroke="#00d1ff" strokeWidth={3} />
                   </LineChart>
                 </ResponsiveContainer>
 
@@ -202,24 +200,21 @@ function App() {
                     <CartesianGrid strokeDasharray="3 3" stroke="#888" />
                     <Tooltip />
                     <Legend />
-                    <Line
-                      type="monotone"
-                      dataKey="demand"
-                      stroke="#00ff99"
-                      strokeWidth={3}
-                    />
+                    <Line type="monotone" dataKey="demand" stroke="#00ff99" strokeWidth={3} />
                   </LineChart>
                 </ResponsiveContainer>
+
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* Table + Download */}
+      {/* TABLE + DOWNLOAD */}
       {tableData.length > 0 && (
         <div className="card bg-secondary border-0 shadow-sm mt-4 mb-5">
           <div className="card-body">
+
             <div className="d-flex justify-content-between align-items-center">
               <h3 className="fw-bold text-white">Data Table</h3>
               <button onClick={handleDownloadXLSX} className="btn btn-success">
@@ -227,17 +222,12 @@ function App() {
               </button>
             </div>
 
-            <div
-              className="table-responsive mt-3"
-              style={{ maxHeight: "500px", overflowY: "auto" }}
-            >
+            <div className="table-responsive mt-3" style={{ maxHeight: "500px", overflowY: "auto" }}>
               <table className="table table-dark table-striped table-hover">
                 <thead>
                   <tr>
                     {Object.keys(tableData[0]).map((col, i) => (
-                      <th key={i} className="text-info">
-                        {col}
-                      </th>
+                      <th key={i} className="text-info">{col}</th>
                     ))}
                   </tr>
                 </thead>
@@ -251,11 +241,14 @@ function App() {
                     </tr>
                   ))}
                 </tbody>
+
               </table>
             </div>
+
           </div>
         </div>
       )}
+
     </div>
   );
 }
